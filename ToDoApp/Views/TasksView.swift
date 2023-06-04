@@ -15,6 +15,13 @@ struct TasksView: View {
                 .font(.title3).bold()
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
+            
+            List {
+                ForEach(realmManager.tasks, id: \.id) {
+                    task in
+                    TaskRow(task: task.title, completed: task.completed)
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))

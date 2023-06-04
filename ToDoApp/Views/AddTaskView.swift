@@ -21,7 +21,9 @@ struct AddTaskView: View {
                 .textFieldStyle(.roundedBorder)
             
             Button("Add Task") {
-                print("task added!")
+                if title != "" {
+                    realmManager.addTask(taskTitle: title)
+                }
                 dismiss()
             }
             Spacer()
