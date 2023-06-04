@@ -19,7 +19,9 @@ struct TasksView: View {
             List {
                 ForEach(realmManager.tasks, id: \.id) {
                     task in
-                    TaskRow(task: task.title, completed: task.completed)
+                    TaskRow(task: task.title, completed: task.completed).onTapGesture {
+                        realmManager.updateTask(id: task.id, completed: !task.completed)
+                    }
                 }
             }
         }
