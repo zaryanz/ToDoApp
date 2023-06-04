@@ -10,6 +10,7 @@ import SwiftUI
 struct AddTaskView: View {
     @State private var title: String = ""
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var realmManager: RealmManager
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text("Create a new task")
@@ -33,6 +34,6 @@ struct AddTaskView: View {
 
 struct AddTaskView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTaskView()
+        AddTaskView().environmentObject(RealmManager())
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TasksView: View {
+    @EnvironmentObject var realmManager: RealmManager
     var body: some View {
         VStack {
             Text("My Tasks")
@@ -22,6 +23,6 @@ struct TasksView: View {
 
 struct TasksView_Previews: PreviewProvider {
     static var previews: some View {
-        TasksView()
+        TasksView().environmentObject(RealmManager())
     }
 }
