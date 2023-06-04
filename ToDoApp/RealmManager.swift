@@ -71,7 +71,7 @@ class RealmManager: ObservableObject {
         }
     }
     
-    func deleteTask(id: ObjectId, completed: Bool) {
+    func deleteTask(id: ObjectId) {
         if let localRealm = localRealm {
             do {
                 let taskToDelete = localRealm.objects(Task.self).filter(NSPredicate(format: "id == %@", id))
