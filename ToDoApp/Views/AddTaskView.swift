@@ -21,6 +21,7 @@ struct AddTaskView: View {
             Button("Add Task") {
                 print("task added!")
             }
+            Spacer()
         }
         .padding(.top, 40)
         .padding(.horizontal)

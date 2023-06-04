@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showAddTaskView = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack(alignment: .bottomTrailing) {
+            TasksView()
+            
+            FloatingButton()
+                .padding()
+                .onTapGesture {
+                   showAddTaskView = true
+                }
+            
         }
-        .padding()
+        .sheet(isPresented: $showAddTaskView) {
+            AddTaskView()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+
     }
 }
 
